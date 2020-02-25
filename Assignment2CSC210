@@ -1,0 +1,66 @@
+import java.util.Scanner;
+public class DrivingExamEvaluator {
+    public static void main(String args[]) {
+
+        //Declaring double for numerical values and string for person's name
+        double practicalScore, writtenScore, weightWritten40, weightPractical60, overallScore;
+        String name;
+
+        Scanner input = new Scanner(System.in);
+
+        //Welcomes user and begins taking input(s)
+        System.out.println("Welcome to your Driving Exam Evaluator!");
+        System.out.println("Please have the following information available when prompted.");
+
+        //Stores name as string in variable name
+        System.out.println("Please enter your name: ");
+        name = input.nextLine();
+
+        //Stores written score as the type double in writtenScore
+        //The following values are converted to the double datatype whether the user inputs a integer or not
+        System.out.println("Please enter your written score: ");
+        writtenScore = input.nextDouble();
+
+        //Stores practical score in practicalScore as double
+        System.out.println("Please enter your practical score: ");
+        practicalScore = input.nextDouble();
+
+
+
+        //Since written score weight is 40% of overall grade, multiply input by 0.4
+        weightWritten40 = writtenScore * 0.4;
+
+        //Same case for practical, multiply input by 0.6 since practical score is 60% of overall grade
+        weightPractical60 = practicalScore * 0.6;
+
+        //Now sum of the calculated weighted scores
+        overallScore = weightWritten40 + weightPractical60;
+
+        //This shows the overall score possible failure for the exam
+        if (overallScore < 70) {
+            System.out.println("Name: " + name);
+            System.out.println("Written Exam Score: " + writtenScore);
+            System.out.println("Practical Exam Score: " + practicalScore);
+            System.out.println("Total Exam Score: " + overallScore);
+            System.out.println("Status: FAIL");
+
+            //This displays failure status when either the written or practical score is less than 60 (or both)
+        } else if (writtenScore < 60 || practicalScore < 60) {
+            System.out.println("Name: " + name);
+            System.out.println("Written Exam Score: " + writtenScore);
+            System.out.println("Practical Exam Score: " + practicalScore);
+            System.out.println("Total Exam Score: " + overallScore);
+            System.out.println("Status: FAIL");
+            //Add something here about failing a portion of exam
+            System.out.println("");
+        } else {
+            System.out.println("Name: " + name);
+            System.out.println("Written Exam Score: " + writtenScore);
+            System.out.println("Practical Exam Score: " + practicalScore);
+            System.out.println("Total Exam Score: " + overallScore);
+            System.out.println("Status: PASS");
+        }
+
+    }
+
+}
